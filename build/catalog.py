@@ -9,6 +9,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build as B
 from fpdf import FPDF
+from PIL import Image
 
 ROOT = B.ROOT
 OUT = os.path.join(ROOT, "docs", "Suvico-International-Catalogue.pdf")
@@ -42,6 +43,37 @@ def eyebrow(pdf,txt):
 def body(pdf,txt,size=10.5):
     pdf.set_x(15); pdf.set_font("Helvetica","",size); pdf.set_text_color(*INK)
     pdf.multi_cell(0,5.4,txt); pdf.ln(2)
+
+def logo_box(pdf,x,y,w,h,path,name):
+    """Draw a bordered box with the org logo centred and its name beneath."""
+    pdf.set_draw_color(*LINE); pdf.set_fill_color(255,255,255)
+    pdf.rect(x,y,w,h,"DF")
+    area_w,area_h = w-12, h-11      # logo area (leave room for the name)
+    try:
+        im = Image.open(A(path)).convert("RGBA")
+        bg = Image.new("RGBA", im.size, (255,255,255,255))
+        im = Image.alpha_composite(bg, im).convert("RGB")
+        r = im.width/im.height
+        if area_w/r <= area_h: lw,lh = area_w, area_w/r
+        else:                  lh,lw = area_h, area_h*r
+        pdf.image(im, x=x+(w-lw)/2, y=y+5+(area_h-lh)/2, w=lw, h=lh)
+    except Exception as e:
+        print("  ! logo",path,e)
+        pdf.set_xy(x,y+area_h/2); pdf.set_font("Helvetica","B",9); pdf.set_text_color(*GREEN)
+        pdf.cell(w,5,name,align="C")
+    pdf.set_xy(x,y+h-7); pdf.set_font("Helvetica","",7.5); pdf.set_text_color(*MUTE)
+    pdf.cell(w,5,name,align="C")
+
+def logo_grid(pdf, items, cols=3, box_h=28, gap=6):
+    cw = 180; box_w = (cw-gap*(cols-1))/cols
+    for i,(path,name) in enumerate(items):
+        col=i%cols
+        if col==0:
+            if i>0: pdf.ln(0)
+            row_y = pdf.get_y()
+        logo_box(pdf, 15+col*(box_w+gap), row_y, box_w, box_h, path, name)
+        if col==cols-1 or i==len(items)-1:
+            pdf.set_y(row_y+box_h+gap)
 
 pdf=PDF(format="A4"); pdf.set_auto_page_break(True,margin=20); pdf.set_margins(15,20,15)
 
@@ -96,16 +128,9 @@ eyebrow(pdf,"Credentials"); H(pdf,"Registered, certified & compliant")
 body(pdf,"Suvico International is registered with / a member of India's principal export, food and "
         "fragrance authorities, and aligns to the standards demanded by international markets.")
 pdf.ln(1)
-pdf.set_font("Helvetica","B",10.5); pdf.set_text_color(*GREEN); pdf.cell(0,7,"Registrations & memberships"); pdf.ln(8)
-pdf.set_font("Helvetica","",10.5); pdf.set_text_color(*INK)
-regs=["MSME","DGFT","APEDA","FIEO","CHEMEXCIL","FSSAI","Ministry of Food Processing","EOAI","FAFAI"]
-for i in range(0,len(regs),3):
-    row=regs[i:i+3]
-    for r in row:
-        pdf.set_text_color(*GOLD); pdf.cell(5,6,chr(149))
-        pdf.set_text_color(*INK); pdf.cell(55,6,r)
-    pdf.ln(7)
-pdf.ln(3)
+pdf.set_font("Helvetica","B",10.5); pdf.set_text_color(*GREEN); pdf.cell(0,7,"Registrations & memberships"); pdf.ln(9)
+logo_grid(pdf, B.CERTS, cols=3, box_h=27, gap=6)
+pdf.ln(1)
 pdf.set_font("Helvetica","B",10.5); pdf.set_text_color(*GREEN); pdf.cell(0,7,"Compliance & standards"); pdf.ln(8)
 pdf.set_font("Helvetica","",10.5)
 comp=["EU MRL","REACH","USDA / NOP","Halal","Kosher","GMP","HACCP","ISO","Spice Board","FSSAI"]
