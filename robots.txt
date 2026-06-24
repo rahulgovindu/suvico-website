@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /build/
+
+Sitemap: https://www.suvicointl.com/sitemap.xml

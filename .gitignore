@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+build/_preview_*.png
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Local server / env
+.env

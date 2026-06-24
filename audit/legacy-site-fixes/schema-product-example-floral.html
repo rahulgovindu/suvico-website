@@ -1,0 +1,72 @@
+<!--
+  ============================================================
+  SCHEMA.ORG STRUCTURED DATA — PRODUCT (example: floral-details)
+  ============================================================
+  WHERE: paste inside <head> of a product detail page.
+  HOW:   one Product block per product on the page. Below is
+         the full floral-details page (Rose, Lavender, Jasmine).
+         Copy the pattern for the other detail pages, changing
+         name / image / botanical name / extraction / CAS.
+  DATA:  values are taken directly from your current site.
+  NOTE:  add "offers" only if you publish pricing. For B2B you
+         usually omit it; the additionalProperty fields below
+         are what buyers and Google care about here.
+  ============================================================
+-->
+
+<!-- ROSE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Rose Absolute Essential Oil",
+  "image": "https://www.suvicointl.com/product/product-details/rose.webp",
+  "description": "Rose Absolute (Rosa damascena), solvent-extracted, origin India. Exported with full traceability and EU MRL / REACH / USDA-NOP compliance.",
+  "brand": { "@type": "Brand", "name": "Suvico International" },
+  "category": "Essential Oils > Floral",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Botanical Name", "value": "Rosa damascena" },
+    { "@type": "PropertyValue", "name": "Extraction Method", "value": "Solvent Extraction" },
+    { "@type": "PropertyValue", "name": "Country of Origin", "value": "India" },
+    { "@type": "PropertyValue", "name": "EU CAS / US CAS / EINECS", "value": "84604-12-6 / 8007-01-0 / 290-260-3" }
+  ]
+}
+</script>
+
+<!-- LAVENDER -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Lavender Essential Oil",
+  "image": "https://www.suvicointl.com/product/product-details/lavender.webp",
+  "description": "Lavender (Lavandula angustifolia), steam-distilled, origin India. Exported with full traceability and EU MRL / REACH / USDA-NOP compliance.",
+  "brand": { "@type": "Brand", "name": "Suvico International" },
+  "category": "Essential Oils > Floral",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Botanical Name", "value": "Lavandula angustifolia" },
+    { "@type": "PropertyValue", "name": "Extraction Method", "value": "Steam Distillation" },
+    { "@type": "PropertyValue", "name": "Country of Origin", "value": "India" },
+    { "@type": "PropertyValue", "name": "EU CAS / US CAS / EINECS", "value": "84776-65-8 / 8000-28-0 / 283-994-0" }
+  ]
+}
+</script>
+
+<!-- JASMINE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Jasmine Absolute Essential Oil",
+  "image": "https://www.suvicointl.com/product/product-details/jasmine.webp",
+  "description": "Jasmine Absolute (Jasminum grandiflorum), solvent-extracted, origin India. Exported with full traceability and EU MRL / REACH / USDA-NOP compliance.",
+  "brand": { "@type": "Brand", "name": "Suvico International" },
+  "category": "Essential Oils > Floral",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Botanical Name", "value": "Jasminum grandiflorum" },
+    { "@type": "PropertyValue", "name": "Extraction Method", "value": "Solvent Extraction" },
+    { "@type": "PropertyValue", "name": "Country of Origin", "value": "India" },
+    { "@type": "PropertyValue", "name": "EU CAS / US CAS / EINECS", "value": "84776-64-7 / 8022-96-6 / 289-960-1" }
+  ]
+}
+</script>

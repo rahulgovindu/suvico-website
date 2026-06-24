@@ -1,0 +1,27 @@
+<!--
+  ============================================================
+  GOOGLE ANALYTICS 4 (GA4)
+  ============================================================
+  WHERE: paste as the FIRST item inside <head> on EVERY page.
+  SETUP:
+    1. Go to https://analytics.google.com  -> Admin -> Create Property.
+    2. Add a "Web" data stream for https://www.suvicointl.com
+    3. Copy the Measurement ID (looks like G-XXXXXXXXXX).
+    4. Replace G-XXXXXXXXXX below (it appears TWICE).
+    5. Also create a Google Search Console property and verify
+       the domain (https://search.google.com/search-console) —
+       then submit sitemap.xml there.
+
+  TIP: a "Generate lead" conversion event already fires below
+       when the contact form is submitted (see send.php note in
+       README). Mark it as a Key Event in GA4 to track quotes.
+  ============================================================
+-->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>

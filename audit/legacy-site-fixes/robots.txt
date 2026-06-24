@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block the admin/upload backend from indexing
+Disallow: /admin/
+Disallow: /quform/
+Disallow: /send.php
+
+# Point crawlers to the sitemap
+Sitemap: https://www.suvicointl.com/sitemap.xml
