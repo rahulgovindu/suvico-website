@@ -1,0 +1,79 @@
+<!--
+  ============================================================
+  OPEN GRAPH / TWITTER / CANONICAL TAGS
+  ============================================================
+  WHERE: paste inside <head> of EVERY page, right after the
+  existing <meta name="description"> line.
+
+  WHAT TO CHANGE PER PAGE: edit the 4 values marked {{...}}.
+  Everything else stays the same site-wide.
+
+  NOTE ON og:image:
+    Social platforms need an ABSOLUTE url and ideally a
+    1200x630 px image. The logo will work but looks small in
+    previews. Recommended: create /img/og/og-default.jpg at
+    1200x630 and point og:image to it. Per-product pages can
+    point to their own product image instead.
+  ============================================================
+-->
+
+<!-- Canonical (prevents duplicate-URL penalties) -->
+<link rel="canonical" href="https://www.suvicointl.com/{{PAGE_PATH}}">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp link previews) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Suvico International">
+<meta property="og:title" content="{{PAGE_TITLE}}">
+<meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+<meta property="og:url" content="https://www.suvicointl.com/{{PAGE_PATH}}">
+<meta property="og:image" content="https://www.suvicointl.com/{{OG_IMAGE}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{PAGE_TITLE}}">
+<meta name="twitter:description" content="{{PAGE_DESCRIPTION}}">
+<meta name="twitter:image" content="https://www.suvicointl.com/{{OG_IMAGE}}">
+
+
+<!--
+  ============================================================
+  READY-TO-PASTE VALUES FOR EACH PAGE
+  (copy the matching block's values into the {{...}} slots)
+  ============================================================
+
+  HOME ( / )
+    PAGE_PATH        =  (leave empty)
+    PAGE_TITLE       =  Suvico International | Premium Indian Exports with Sustainable & Ethical Sourcing
+    PAGE_DESCRIPTION =  Premium Indian exporter of essential oils and fruit & vegetable dehydrates. Traceable, sustainably sourced, certification-backed ingredients for global markets.
+    OG_IMAGE         =  img/og/og-default.jpg
+
+  OUR STORY ( our-story )
+    PAGE_PATH        =  our-story
+    PAGE_TITLE       =  Our Story | Suvico International
+    PAGE_DESCRIPTION =  How Suvico was founded on transparency and traceability, and the philosophy of Vasudhaiva Kutumbakam that guides our sourcing.
+    OG_IMAGE         =  img/Philosophy.jpeg
+
+  ESSENTIAL OILS ( essential-oils )
+    PAGE_PATH        =  essential-oils
+    PAGE_TITLE       =  Essential Oils Exporter India | Floral, Citrus, Woody, Spicy, Herbal | Suvico
+    PAGE_DESCRIPTION =  Steam-distilled and solvent-extracted essential oils from India with full CAS/EINECS data and EU MRL, REACH, USDA/NOP compliance.
+    OG_IMAGE         =  product/essential-oils.webp
+
+  DEHYDRATES ( dehydrates )
+    PAGE_PATH        =  dehydrates
+    PAGE_TITLE       =  Dehydrated Fruits & Vegetables Exporter India | Suvico International
+    PAGE_DESCRIPTION =  Freeze-dried and dehydrated fruits, vegetables and specialty products, FSSAI/APEDA/HACCP compliant, for global food and nutraceutical buyers.
+    OG_IMAGE         =  product/dehydrates.png
+
+  CONTACT ( contact )
+    PAGE_PATH        =  contact
+    PAGE_TITLE       =  Contact / Request a Quote | Suvico International
+    PAGE_DESCRIPTION =  Request a quote or sample of Suvico essential oils and dehydrates. Based in Navi Mumbai, India. MOQ from USD 2,500.
+    OG_IMAGE         =  img/og/og-default.jpg
+
+  (Product detail pages: reuse the category title and point
+   OG_IMAGE at that product's image, e.g. product/floral.webp)
+-->

@@ -1,0 +1,76 @@
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+  .htaccess ADDITIONS for suvicointl.com  (Hostinger / LiteSpeed)
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+⚠️  IMPORTANT — DO NOT REPLACE your existing .htaccess.
+    Your clean URLs (/floral-details etc.) already work, which means
+    there are existing RewriteRules in the file. Removing them will
+    break the site. APPEND the blocks below to the END of the current
+    .htaccess instead, then test the site.
+
+    The file lives in your public_html root (same folder as index).
+    Take a backup first:  copy .htaccess to .htaccess.bak
+
+────────────────────────────────────────────────────────────────────
+BLOCK 1 — Custom error pages (fixes the ugly 500 / adds a real 404)
+────────────────────────────────────────────────────────────────────
+ErrorDocument 404 /404.html
+ErrorDocument 500 /404.html
+
+# If a "clean URL" has no matching .php file, send a 404 (not a 500).
+# This is what currently makes /essential-oils/rose throw HTTP 500.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Only rewrite ext-less URLs to .php WHEN that .php file actually exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+  RewriteRule ^([^.]+)$ $1.php [L]
+  # Anything that still doesn't resolve falls through to the 404 above.
+</IfModule>
+
+────────────────────────────────────────────────────────────────────
+BLOCK 2 — Security headers
+────────────────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+────────────────────────────────────────────────────────────────────
+BLOCK 3 — GZIP / Brotli compression (shrinks that 874 KB CSS over the wire)
+────────────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml image/svg+xml
+</IfModule>
+
+────────────────────────────────────────────────────────────────────
+BLOCK 4 — Browser caching for static assets (faster repeat visits)
+────────────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                "access plus 1 month"
+  ExpiresByType application/javascript  "access plus 1 month"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType image/x-icon            "access plus 1 year"
+</IfModule>
+
+────────────────────────────────────────────────────────────────────
+BLOCK 5 (OPTIONAL) — Force HTTPS + canonical www
+  Only add if the site is NOT already redirecting. Test first; if you
+  already land on https://www.suvicointl.com automatically, skip this.
+────────────────────────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.suvicointl.com%{REQUEST_URI} [L,R=301]
+</IfModule>

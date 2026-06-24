@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Suvico International sitemap.
+  Update <lastmod> dates whenever a page changes, and add new blog posts below.
+  Submit this file in Google Search Console once live.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://www.suvicointl.com/</loc><lastmod>2026-06-24</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.suvicointl.com/our-story</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.suvicointl.com/contact</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Category pages -->
+  <url><loc>https://www.suvicointl.com/essential-oils</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.suvicointl.com/dehydrates</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Essential oil product pages -->
+  <url><loc>https://www.suvicointl.com/floral-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/citrus-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/woody-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/spicy-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/herbal-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/other-essential-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Dehydrate product pages -->
+  <url><loc>https://www.suvicointl.com/fruits-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/vaggies-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.suvicointl.com/others-details</loc><lastmod>2026-06-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://www.suvicointl.com/blog</loc><lastmod>2026-06-24</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.suvicointl.com/blog-details.php?id=3</loc><lastmod>2026-01-15</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.suvicointl.com/blog-details.php?id=4</loc><lastmod>2026-01-15</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.suvicointl.com/blog-details.php?id=5</loc><lastmod>2026-01-15</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+
+</urlset>
